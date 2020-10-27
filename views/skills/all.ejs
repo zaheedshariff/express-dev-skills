@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Skills</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/skills/all">See all Skills</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/skills/add">Add a Skill</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">My Programming Skills!</h1>
+        <p class="lead">See a full list of my skills here</p>
+      </div>
+    </div>
+    <body>
+        <h2>All Skills</h2>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Skill</th>
+                <th scope="col">Experience</th>
+                <th scope="col">Delete?</th>
+              </tr>
+            </thead>
+            <tbody>
+                
+            <% skills.forEach(function(s) { %>
+
+            <tr>
+                <td><span><%= s.skill %></span></td>
+                <td><span><%= s.experience %></span></td>
+                <!-- need help with this -->
+                <td><form action="/skills/<%= s.id %>?_method=DELETE" class="delete-form" method="POST">
+                    <button type="submit">X</button>
+                    </form></td>
+            </tr>
+
+            <% }) %>
+
+        </tbody>
+        </table>
+
+    </body> 
+  </body>
+</html>
